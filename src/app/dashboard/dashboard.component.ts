@@ -10,6 +10,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { MatTableDataSource, MatSort, MatPaginator} from '@angular/material'; 
 import { ProjectComponent } from '../project/project.component';
 import { TaskComponent } from '../task/task.component';
+import { Auth } from 'aws-amplify';
 
 
 @Component({
@@ -34,7 +35,11 @@ export class DashboardComponent implements OnInit {
     this.getTask();
     this.getProject();
     
+    
   }
+ 
+
+
  displayedColumns: string[] = ['SelectTask','taskid','desc', 'Project', 'user', 'completed','Action'];
   //myDataSource: taskElement[] = this.allTasks.listProjects;
   
@@ -78,14 +83,16 @@ console.log(this.myDataSource.data);
 
 async Delete()
 {
-  const taskdetails = {
+  
+  console.log("delete task")
+  const deltaskdetails = {
     taskid:11,
     desc:'task',
     Project:'test',
     user:'arun',
     completed:true
   };
-  const newtask= await API.graphql(graphqlOperation(mutations.deleteTask, {input: taskdetails}));
+  await API.graphql(graphqlOperation(mutations.deleteTask, {input: deltaskdetails}));
 
   console.log("delete task")
 }
