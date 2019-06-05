@@ -1,0 +1,25 @@
+
+<h2 mat-dialog-title>Login ...</h2>
+<mat-dialog-actions >
+    <button  mat-dialog-close>
+      <i class="glyphicon glyphicon-remove-circle"></i>
+    </button>    
+  </mat-dialog-actions>
+  
+  <br>
+<div fxLayout="column" fxLayoutAlign="center center" class="login-container">
+  <div fxLayout="column" fxLayoutAlign="center end">
+      <mat-card class="login-card">
+          <mat-card-header>
+              <mat-card-title></mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+              <app-login-form></app-login-form>
+          </mat-card-content>
+      </mat-card>
+  </div>
+  <br/>
+  <a mat-button color="primary" routerLink="/register">
+      Create Account
+  </a>
+</div>

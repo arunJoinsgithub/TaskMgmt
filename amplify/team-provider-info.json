@@ -1,0 +1,19 @@
+{
+    "test": {
+        "awscloudformation": {
+            "AuthRoleName": "task-mgmt-test-20190603142636-authRole",
+            "UnauthRoleArn": "arn:aws:iam::711922954182:role/task-mgmt-test-20190603142636-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::711922954182:role/task-mgmt-test-20190603142636-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "task-mgmt-test-20190603142636-deployment",
+            "UnauthRoleName": "task-mgmt-test-20190603142636-unauthRole",
+            "StackName": "task-mgmt-test-20190603142636",
+            "StackId": "arn:aws:cloudformation:us-west-2:711922954182:stack/task-mgmt-test-20190603142636/7f785550-85dd-11e9-94b1-06aa0dcac8ba"
+        },
+        "categories": {
+            "auth": {
+                "cognitoc288f88b": {}
+            }
+        }
+    }
+}

@@ -1,0 +1,196 @@
+/* You can add global styles to this file, and also import other style files */
+
+.buff-top-10{ margin-top: 10px;}
+.buff-top-15{ margin-top: 15px;}
+.buff-top-20{ margin-top: 20px;}
+.buff-top-25{ margin-top: 25px;}
+.buff-top-30{ margin-top: 30px;}
+.buff-top-40{ margin-top: 40px;}
+.buff-top-60{ margin-top: 60px;}
+.buff-top-80{ margin-top: 80px;}
+
+.buff-bottom-10{ margin-bottom: 10px;}
+.buff-bottom-15{ margin-bottom: 15px;}
+.buff-bottom-20{ margin-bottom: 20px;}
+.buff-bottom-25{ margin-bottom: 25px;}
+.buff-bottom-30{ margin-bottom: 30px;}
+.buff-bottom-40{ margin-bottom: 40px;}
+
+.buff-right-5{ margin-right: 5px;}
+.buff-right-10{ margin-right: 10px;}
+.buff-right-15{ margin-right: 15px;}
+.buff-right-20{ margin-right: 20px;}
+
+.buff-left-10{ margin-left: 10px;}
+.buff-left-15{ margin-left: 15px;}
+.buff-left-20{ margin-left: 20px;}
+
+.no-margin{margin:0px !important;}
+.nopadding{ padding: 0px !important;}
+.nopadding-r{ padding-right: 0px !important;}
+.nopadding-l{ padding-left: 0px !important;}
+
+.pad-top-10{padding-top: 10px;}
+.pad-top-15{padding-top: 15px;}
+.pad-top-20{padding-top: 20px;}
+.pad-top-25{padding-top: 25px;}
+.pad-top-30{padding-top: 30px;}
+
+.pad-tb-10{padding-top: 10px !important; padding-bottom: 10px !important;}
+.pad-tb-15{padding-top: 15px !important; padding-bottom: 15px !important;}
+.pad-tb-20{padding-top: 20px !important; padding-bottom: 20px !important;}
+
+.pad-rl-10{padding-left: 10px !important ; padding-right: 10px !important;}
+
+.pad-bottom-10{padding-bottom: 10px;}
+.pad-bottom-15{padding-bottom: 15px;}
+.pad-bottom-20{padding-bottom: 20px;}
+.pad-bottom-25{padding-bottom: 25px;}
+.pad-bottom-30{padding-bottom: 30px;}
+
+.pad-right-10{padding-right: 10px;}
+.pad-right-15{padding-right: 15px;}
+.pad-right-20{padding-right: 20px;}
+.pad-right-25{padding-right: 25px;}
+.pad-right-30{padding-right: 30px;}
+
+.pad-left-10{padding-left: 10px;}
+.pad-left-15{padding-left: 15px;}
+.pad-left-20{padding-left: 20px;}
+.pad-left-25{padding-left: 25px;}
+.pad-left-30{padding-left: 30px;}
+
+.fort-10 {font-size: 10px;}
+.fort-12 {font-size: 12px;}
+.fort-14 {font-size: 14px;}
+.fort-16 {font-size: 16px;}
+.fort-18 {font-size: 18px;}
+.fort-20 {font-size: 20px;}
+.fort-24 {font-size: 24px;}
+
+.width-85 {width: 85px !important;}
+.width-130 {width: 130px !important;}
+.width-150 {width: 150px !important;}
+.width-160 {width: 160px !important;}
+
+.flow-right{float: right;}
+.flow-left{float: left;}
+
+/*body{background: #eee !important;  height: 100%;}*/
+/* #loginpage{ background: url('assets/images/1-login.jpg') center center fixed; position: absolute; height: 100%; width: 100%; background-size: cover; } */
+
+.pageheader{ /*height: 60px;*/ min-height: 64px;  width: 100%;   background: #f7f7f7; padding: 15px; }
+
+.pageheader .header-url{ font-size: 20px; color: #676766; font-weight: 600;}
+
+.panel-box{height: 50px; background: #f7f7f7;}
+.panel-icon{width: 50px; height: 50px; color: #fff; font-size: 25px; float: left; text-align: center; line-height: 50px; }
+.panel-info {margin-left: 51px; padding: 6px 5px; }
+.cursor-point:hover {cursor: pointer;}
+
+.bg-org{background: #fba861;}
+.bg-blue{background: #6aacda;}
+.bg-purple{background: #ba7ac1;}
+.bg-green{background: #5cb85c;}
+.bg-red{background: #e25959;}
+.bg-yellow{background: #ded18c;}
+.bg-florocent{background: #6ed4b8;}
+
+.panel-info .info-header { font-size:13px; font-weight: 600; font-variant: small-caps;}
+.panel-info .info-amt{color: #676766; font-size:13px; font-weight: 600;}
+
+.color-org{color: #fba861;}
+.color-blue{color: #6aacda;}
+.color-purple{color: #ba7ac1;}
+.color-green{color: #5cb85c;}
+.color-florocent{color: #6ed4b8;}
+.color-red{color: #e25959;}
+.color-yellow{color: #ded18c;}
+.color-grey{color: #989898;}
+
+.panel-heading{background: #f5f5f5; }
+
+.piachart-panel{height: 375px;}
+.piachart-panel-300{height: 300px;}
+.piachart-block canvas {height: 326px !important; width: 653px !important; display: block;}
+
+.piatable thead{background: #f3fffb; }
+.piatable thead>th{border: 1px solid #eee; padding: 7px 10px;}
+
+.infoBox{height: 80px; background: #f7f7f7;}
+.infoBox-icon{width: 89px; height: 80px; float: left; font-size: 50px; line-height: 80px; text-align: center;}
+.infoBox-info{margin-left: 90px; padding: 10px; height: 80px;}
+
+.infoBox-info .info-count{font-size: 30px; color: #676766; font-weight: 600;}
+.infoBox-info .info-title{font-size: 13px; color: #676766; font-variant: small-caps;}
+.bg-white{ background: #fff;}
+.table {border: 1px solid #eee !important;}
+
+
+.processBox{ height: 100px; border-radius: 5px; width: 100%; display: flex; }
+.proc-innerBox{width: 100px; height: 90px; margin-right: 1px;  }
+.proc-indicate {height: 20px; width: 100%;}
+.proc-info {height: 75px;  width: 100%; background: #eafff8; text-align:  center; }
+.proc-info .proc-info-name{ font-size: 16px; font-weight: 500; padding: 5px; }
+.proc-info .proc-info-time{ font-size: 12px;  }
+
+.notify{font-size: 14px; display: inline-block; padding: 0 10px; font-weight: 600;}
+.notify-icon{ height: 10px; width: 10px;float: left; margin-top: 5px; margin-right: 7px; }
+
+
+.processTimeline{ height: 80px; border-radius: 5px; width: 100%; display: flex; }
+.proc-timeline-upcoming{ width: 100px; height: 80px;  position: relative; background: #fba861; margin-right: 25px; }
+.proc-timeline-upcoming:after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 0; border-left: 25px solid white; border-top: 40px solid transparent; border-bottom: 40px solid transparent; }
+.proc-timeline-upcoming:before { content: ""; position: absolute; right: -25px; bottom: 0; width: 0; height: 0; border-left: 25px solid #fba861; border-top: 40px solid transparent; border-bottom: 40px solid transparent;}
+
+.proc-timeline-complete{ width: 100px; height: 80px;  position: relative; background: #5cb85c; margin-right: 25px; }
+.proc-timeline-complete:after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 0; border-left: 25px solid white; border-top: 40px solid transparent; border-bottom: 40px solid transparent; }
+.proc-timeline-complete:before { content: ""; position: absolute; right: -25px; bottom: 0; width: 0; height: 0; border-left: 25px solid #5cb85c; border-top: 40px solid transparent; border-bottom: 40px solid transparent;}
+
+.proc-timeline-process{ width: 100px; height: 80px;  position: relative; background: #6aacda; margin-right: 25px; }
+.proc-timeline-process:after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 0; border-left: 25px solid white; border-top: 40px solid transparent; border-bottom: 40px solid transparent; }
+.proc-timeline-process:before { content: ""; position: absolute; right: -25px; bottom: 0; width: 0; height: 0; border-left: 25px solid #6aacda; border-top: 40px solid transparent; border-bottom: 40px solid transparent;}
+
+.pan-ht{
+  height: 170px;
+}
+.proc-info-timeline{
+  height: 80px;
+  margin-left: 25px;
+  text-align: center;
+  line-height: 80px;
+}
+.proc-info-timeline .proc-info-name{  display: inline-block;  vertical-align: middle;  line-height: normal;}
+
+@media screen and (min-width: 1200px) and  (max-width:1300px) {
+
+}
+
+@media screen and (min-width: 1300px) and  (max-width:1350px) {
+
+}
+
+@media screen and (min-width: 1350px) and  (max-width:1400px) {
+
+
+}
+
+@media screen and (min-width: 1400px) and  (max-width:1500px) {
+
+}
+
+@media (min-width:1500px) {
+
+}
+
+@media (min-width:1600px) {
+
+}
+
+@media (min-width:1700px) {
+
+}
+
+.btn-highlight, .btn-highlight:hover{color: #fff !important;  background-color: #ac2925;  border-color: #761c19;}
+
+.btn:focus{ border: none; outline: 0px !important;}

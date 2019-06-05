@@ -1,0 +1,13 @@
+type Project @model {
+  id: ID!
+  name: String!
+  status:Boolean!
+  
+}
+type Task @model {
+  taskid: ID!
+  desc: String!
+  Project: String!
+  user: String!
+  completed:Boolean!
+}

@@ -1,0 +1,244 @@
+/**Custom CSS for IVLI Version 1.0.1 **/
+/**Date 15 Feb 2017 1:30PM, Created by Vicky Kumar**/
+/**© Copyright 2017 Infovision labs - http://infovisionlabs.com**/
+
+/*@import url('https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900');*/
+html {-ms-overflow-style: scrollbar;}
+/* body {font-size: 16px !important;color: #494949;font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; background-color: #fff !important;} */
+body {font-size: 16px !important;color: #494949;}
+input::-ms-clear {display: none;}
+input, input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {transition: background-color 5000s ease-in-out 0s;}
+
+
+/***************** theme *************/
+
+.bg-fff {background-color: #fff !important;}
+.bg-e6e6e6 {background-color: #e6e6e6;}
+.bg-transparent {background-color: transparent;}
+.bg-F2F6FA {background-color: #F2F6FA;}
+
+.bg-facebook {background-color: #3072AC;}
+.bg-facebook:hover {background-color: #3B5998;}
+.bg-googlePlus {background-color: #DC4B3A;}
+.bg-googlePlus:hover {background-color: #c33219;}
+.bg-twitter {background-color: #00aced;}
+.bg-twitter:hover {background-color: #0084b4;}
+.bg-insta {background-color: #ffc0cb;}
+.bg-insta:hover {background-color: #ff748c;}
+.bg-linkedin {background-color: #0077b5;}
+.bg-linkedin:hover {background-color: #4875B4;}
+.bg-youtube {background-color: #FF3333;}
+.bg-youtube:hover {background-color: #cc181e;}
+
+.bg-19202A {background-color: #19202A;}
+.bg-13181E {background-color: #13181E;}
+.bg-f2f6fa {background-color: #f2f6fa;}
+
+.no-border {border: none;}
+.border-radius-10 {border-radius: 10px;}
+.border-radius-50 {border-radius: 50px;}
+/*.border-radius-20 {border-radius: 20px;}*/
+
+.no-top-buffer {margin-top: 0;}
+.top-buffer-5{margin-top: 5px;}
+.top-buffer-10{margin-top: 10px;}
+.top-buffer-15 {margin-top: 15px;}
+.top-buffer-20 {margin-top: 20px;}
+.top-buffer-25 {margin-top: 25px;}
+.top-buffer-30 {margin-top: 30px;}
+.top-buffer-40 {margin-top: 40px;}
+.top-buffer-50 {margin-top: 50px;}
+.top-buffer-60 {margin-top: 60px;}
+.top-buffer-80 {margin-top: 80px;}
+.top-buffer-100 {margin-top: 100px !important;}
+.top-buffer-135 {margin-top: 135px;}
+
+.no-bottom-buffer {margin-bottom: 0 !important;}
+.bottom-buffer-15{margin-bottom: 15px;}
+.bottom-buffer-20{margin-bottom: 20px;}
+.bottom-buffer-24{margin-bottom: 24px;}
+.bottom-buffer-30{margin-bottom: 30px;}
+.bottom-buffer-40{margin-bottom: 40px;}
+.bottom-buffer-60{margin-bottom: 60px;}
+
+.right-buffer-5 {margin-right: 5px;}
+.right-buffer-10 {margin-right: 10px;}
+.right-buffer-15 {margin-right: 15px;}
+.right-buffer-20 {margin-right: 20px;}
+.right-buffer-24 {margin-right: 24px;}
+
+.left-buffer-10 {margin-left: 10px;}
+
+.top-bottom-15 {margin-top: 15px; margin-bottom: 15px;}
+
+.padding-20 {padding: 20px;}
+.padding-24 {padding: 24px;}
+
+.nopadding {padding: 0 !important;}
+.no-padding-left {padding-left: 0;}
+
+.left-padding-5 {padding-left: 5px !important;}
+.left-padding-20 {padding-left: 20px !important;}
+.left-padding-24 {padding-left: 24px !important;}
+
+.top-padding-10 {padding-top: 10px;}
+.top-padding-40 {padding-top: 40px;}
+
+.bottom-padding-30 {padding-bottom: 30px;}
+
+.right-padding-15 {padding-right: 15px !important;}
+
+.padding-left-right-15 {padding-left: 15px !important; padding-right: 15px !important;}
+.padding-left-right-54 {padding-left: 54px !important; padding-right: 54px !important;}
+
+.h1, h1 {font-size: 34px !important; font-weight: 600px !important;}
+.h2, h2 {font-size: 30px !important;}
+.h3, h3 {font-size: 20px !important;color: #35344C;}
+.h4, h4 {font-size: 16px !important;color: #35344C;}
+.font-12 {font-size: 12px !important;}
+.font-14 {font-size: 14px !important;}
+.font-15 {font-size: 15px !important;}
+.font-16 {font-size: 16px !important;}
+.font-18 {font-size: 18px !important;}
+.font-20 {font-size: 20px;}
+.font-24 {font-size: 24px;}
+.font-30 {font-size: 30px;}
+.font-26-300 {font-size: 26px; font-weight: 300;}
+.font-60 {font-size: 60px;}
+.text-bold-ex {font-weight: 700 !important;}
+.text-normal {font-weight: normal}
+
+.text-fff {color: #fff;}
+.text-000 {color: #000;}
+.text-35344C {color: #35344C;}
+.text-b1b1b1 {color: #b1b1b1;}
+.text-A3A6B6 {color: #A3A6B6;}
+.text-239DE6 {color: #239DE6 !important;}
+.text-1ACD48 {color: #1ACD48 !important;}
+.text-FE5C3C {color: #FE5C3C !important;}
+.text-8C8F91 {color: #8C8F91;}
+
+.text-transform {text-transform: uppercase;}
+
+.text-button {color: #96A2BA !important; font-size: 14px; font-weight: 600; text-transform: uppercase;cursor: pointer;}
+
+.full-width {width: 100%;}
+
+.fb {color: #428BCA !important;}
+.insta {color: #D94FA3 !important;}
+.tweet {color: #5BC0DE !important;}
+.googlePlus {color: #D9534F !important;}
+
+.theme-text {font-size: 14px;color: #96A2BA !important; font-weight: normal !important;}
+
+.custom-nav-tabs {border-bottom: none !important;margin-bottom: 20px !important;}
+.custom-nav-tabs li {border: none;}
+
+.btn {height: 36px;/*padding: 12px 18px;*/ border:none}
+
+.btn-primary, .btn-primary:active, .btn-primary:focus {text-transform: uppercase; background-color: #FD6A3E;font-size: 14px;font-weight: bold;letter-spacing: 1px;text-align: center;border-radius: 0;}
+.btn-primary:hover {background-color: #FD6A3E  !important; border: none  !important;border-radius: 0;}
+.btn-primary.disabled, .btn-primary:disabled {
+	color: #96A2BA;
+    background-color: #E1E4E7 !important;
+    border: none !important;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: default;
+}
+
+.btn-default {
+    background-color: transparent;
+    border: 0.5px solid #fff;
+    padding: 7px 18px;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 0;
+}
+.btn-default:active, .btn-default:focus {background-color: #FD6A3E;	color: #fff;padding: 7px 18px;border-radius: 0;}
+.btn-default:hover {background-color: #FD6A3E  !important; border: 0.5px solid #FD6A3E  !important;color: #fff;border-radius: 0;}
+
+.btn-back {	background-color: #DDDFE5;box-shadow: 0 0 NaNpx NaNpx rgba(35,157,230,0.5);font-size: 16px;font-weight: 500;letter-spacing: 1px;text-align: left;color: #A3A6B6;}
+
+.btn-social {border-radius: 20px;color: #fff;height: 40px;width: 40px;border: none;}
+.btn-social a {text-decoration: none;}
+.socialLoginComponent a:hover {color: #fff !important;}
+.input-addon-transparent{    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;}
+
+.link-grey {text-decoration: underline;color: #8C8F91; font-size: 16px;}
+.link-grey:hover {color: #f9a206 !important;}
+
+.mdc-line-ripple.mdc-line-ripple--active.mdc-line-ripple--deactivating{
+	border-bottom-color: #b1b1b1 !important;
+}
+
+select.mdc-select__native-control {font-size: 16px !important;font-weight: 300 !important;color: #010101 !important;}
+.mdc-floating-label {font-size: 16px !important;font-weight: 300 !important;}
+.mdc-text-field__input {font-size: 16px !important;font-weight: 300 !important;padding-bottom: 10px !important;}
+.mdc-text-field--invalid:not(.mdc-text-field--disabled):not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mdc-text-field__input {
+    border-bottom-color: #8C8F91 !important;
+}
+
+.inline-block {display: inline-block;}
+.cursor-pointer {cursor: pointer;}
+.vertical-align-middle {vertical-align: middle;}
+
+.back-text-button {
+  height: 36px;
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #2962FF;
+  outline: none;
+}
+
+.form-control {border-radius: 0;}
+
+.breadcrumb {padding: 0;background-color: transparent;}
+.breadcrumb>li+li:before {padding: 0 5px;color: #96A2BA;content: "\003e";vertical-align: middle;}
+.breadcrumb>li>a {font-size: 14px; color: #96A2BA;}
+
+.customTooltip i {font-size: 16px;color: #B5B8BB;cursor: pointer;}
+.customTooltip i:hover {color: #35344c;}
+.ui-tooltip-text.ui-shadow.ui-corner-all {
+   max-width: 100%;
+      min-width: 500px;
+}
+
+.mobileNavigation {display: none !important;}
+
+.ui-dropdown, .ui-state-focus {box-shadow: none !important;}
+
+.col-3-grid .col-md-3 {width: 33.33%;}
+
+/***************** theme end **********/
+
+/**************** angular MDC *****************/
+mdc-text-field-helper-text {font-size: 13px !important;}
+.mdc-text-field__input {font-size: 16px !important;font-weight: 300 !important;padding-bottom: 10px !important;}
+mdc-text-field {width: 100% !important;margin-top: 0 !important;}
+.mdc-text-field:not(.mdc-text-field--disabled):not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mdc-text-field__input:hover {border-bottom-color: #8C8F91 !important;}
+.mdc-checkbox__checkmark-path {stroke: #fff !important;}
+mdc-floating-label.mdc-floating-label.mdc-floating-label--float-above {margin-bottom: 5px;}
+
+/**************** angular MDC End *****************/
+
+/*********** page header *********/
+.pageSubMenu .userPhoto {
+    background-image: url(../images/userLogo.png);
+    height: 50px;
+    width: 50px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    border-radius: 30px;
+    vertical-align: middle;
+    margin-right: 12px;
+}
