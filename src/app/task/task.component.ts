@@ -35,7 +35,7 @@ export class TaskComponent implements OnInit {
       const taskDetails = {
         
         taskid:Math.floor(Math.random() * (999999 - 100000)) + 100000,
-        desc:'task',
+        desc:this.taskform.get('Name').value,
         Project:this.taskform.get('Name').value,
         user:'arun',
         completed:true

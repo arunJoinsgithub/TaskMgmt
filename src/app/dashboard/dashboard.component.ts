@@ -11,6 +11,7 @@ import { MatTableDataSource, MatSort, MatPaginator} from '@angular/materia
 import { ProjectComponent } from '../project/project.component';
 import { TaskComponent } from '../task/task.component';
 import { Auth } from 'aws-amplify';
+import { integer } from 'aws-sdk/clients/cloudfront';
 
 
 @Component({
@@ -40,9 +41,9 @@ export class DashboardComponent implements OnInit {
  
 
 
- displayedColumns: string[] = ['SelectTask','taskid','desc', 'Project', 'user', 'completed','Action'];
+ //displayedColumns: string[] = ['SelectTask','taskid','desc', 'Project', 'user', 'completed','Action'];
   //myDataSource: taskElement[] = this.allTasks.listProjects;
-  
+  displayedColumns: string[] = ['SelectTask','desc','Action'];
   /**
      * Open Project details dialog
      */
@@ -51,7 +52,7 @@ export class DashboardComponent implements OnInit {
          
       });
       dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
+        console.log(`Dialog result: ${result}`);       
       });
   }
   openTaskDetailsDialog(taskId) {
@@ -61,6 +62,7 @@ export class DashboardComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      
     });
 }
 async getProject()
@@ -69,6 +71,7 @@ async getProject()
 this.allProject = await API.graphql(graphqlOperation(queries.listProjects));
 
 console.log(this.allProject.data.listProjects);
+
 
 }
 
@@ -81,18 +84,18 @@ this.myDataSource.data = this.allTasks.data.listTasks;
 console.log(this.myDataSource.data);
 }
 
-async Delete()
+async Delete(id:integer)
 {
   
-  console.log("delete task")
+  console.log(id)
   const deltaskdetails = {
-    taskid:11,
+    taskid:id,
     desc:'task',
     Project:'test',
     user:'arun',
     completed:true
   };
-  await API.graphql(graphqlOperation(mutations.deleteTask, {input: deltaskdetails}));
+  await API.graphql(graphqlOperation(mutations.deleteTask, {input: id}));
 
   console.log("delete task")
 }
