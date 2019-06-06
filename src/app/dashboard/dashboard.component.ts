@@ -43,7 +43,7 @@ export class DashboardComponent implements OnInit {
 
  //displayedColumns: string[] = ['SelectTask','taskid','desc', 'Project', 'user', 'completed','Action'];
   //myDataSource: taskElement[] = this.allTasks.listProjects;
-  displayedColumns: string[] = ['SelectTask','desc','Action'];
+  displayedColumns: string[] = ['SelectTask','desc','user','Action'];
   /**
      * Open Project details dialog
      */
