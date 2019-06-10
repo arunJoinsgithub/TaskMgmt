@@ -16,11 +16,10 @@
       <mat-card-content>
           <form [formGroup]="taskform" fxLayout="column" (ngSubmit)="createtask()">
               <mat-form-field>
-                  <mat-select placeholder="Select Project">
-                      <mat-option *ngFor="let grp of allProject.data.listProjects.items" [value]="grp">{{grp.name}}   </mat-option>
+                  <mat-select formControlName="ProjectName" placeholder="Select Project">
+                      <mat-option *ngFor="let grp of allProject.data.listProjects.items" [value]="grp.name">{{grp.name}}   </mat-option>
                   </mat-select>
-                </mat-form-field>
-                
+                </mat-form-field>                
                   <br>
               <mat-form-field appearance="outline">
                   <mat-label>Name</mat-label>

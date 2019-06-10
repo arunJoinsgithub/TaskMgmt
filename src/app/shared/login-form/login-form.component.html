@@ -31,7 +31,7 @@
       </mat-error>
   </mat-form-field>
   <div fxLayout="row" fxLayoutAlign="space-between center">
-      <a mat-button color="primary" type="button" routerLink="/forgetpassword">
+      <a mat-button color="primary" type="button" (click)="openForgetPassword()">
           Forgot Password?
       </a>
       <button type="submit" mat-raised-button color="primary" [disabled]="loading">

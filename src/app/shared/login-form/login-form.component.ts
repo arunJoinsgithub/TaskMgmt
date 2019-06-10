@@ -1,9 +1,13 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatTableDataSource, MatSort, MatPaginator} from '@angular/material'; 
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 import { AuthService } from '../../services/auth.service';
+import { ForgetpasswordComponent } from 'src/app/forgetpassword/forgetpassword.component';
 
 @Component({
   selector: 'app-login-form',
@@ -18,7 +22,7 @@ export class LoginFormComponent implements OnInit, AfterViewInit {
   loading: boolean;
 
   constructor(private router: Router,
-              private authService: AuthService,
+              private authService: AuthService,public dialog: MatDialog, private snackbar: MatSnackBar
              ) {
   }
 
@@ -42,11 +46,16 @@ export class LoginFormComponent implements OnInit, AfterViewInit {
           this.loading = true;
           this.authService.login(this.loginForm.get('email').value, this.loginForm.get('password').value)
               .then(result => {
-                
+                this.snackbar.open('You are logged in as..'+this.loginForm.get('email').value, '', { duration: 3000, panelClass:"test-panel" , verticalPosition:"top"});
                   console.log(result);
                   this.router.navigateByUrl('dashboard')
                   this.loading = false;
                   console.log(result);
+                  if (result.token && result) {
+                    // store user details and jwt token in local storage to keep user logged in between page refreshes
+                    localStorage.setItem('currentUser', JSON.stringify(result));
+                   console.log( localStorage.getItem('currentUser'));
+                }
               })
               .catch(error => {
                   this.loading = false;
@@ -71,15 +80,17 @@ export class LoginFormComponent implements OnInit, AfterViewInit {
       }
   }
 
-  decodeChallenge(result) {
-      switch (result.challengeName) {
-          case 'NEW_PASSWORD_REQUIRED':
-              // TODO: create UI for new password
-              break;
-          default:
-              console.log(result.challengeName);
-              break;
-      }
+  
+
+  openForgetPassword() {
+  
+    const dialogRef = this.dialog.open(ForgetpasswordComponent, {
+      
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      
+    });
   }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Amplify, { API, graphqlOperation } from "aws-amplify";
 import { FormGroup, FormControl, Validators, AbstractControl, FormBuilder } from '@angular/forms';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 import * as mutations from '../graphql/mutations';
 
 
@@ -13,7 +13,7 @@ import * as mutations from '../graphql/mutations';
 export class ProjectComponent implements OnInit {
 
   private projectform: FormGroup;
-  constructor() { }   
+  constructor(private snackbar: MatSnackBar) { }   
   ngOnInit() {  
       this.projectform = new FormGroup({
         Name: new FormControl('', Validators.required),
@@ -32,6 +32,6 @@ export class ProjectComponent implements OnInit {
 
       const newProject= await API.graphql(graphqlOperation(mutations.createProject, {input: ProjectDetails}));
 
-          console.log("create Project")
+      this.snackbar.open('New Project created successfully'+this.projectform.value.Name, '', { duration: 3000, panelClass:"test-panel" , verticalPosition:"top"});
         }
 }

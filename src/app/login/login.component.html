@@ -1,13 +1,14 @@
 
 <h2 mat-dialog-title>Login ...</h2>
-<mat-dialog-actions >
+<!--<mat-dialog-actions >
     <button  mat-dialog-close>
       <i class="glyphicon glyphicon-remove-circle"></i>
     </button>    
   </mat-dialog-actions>
   
   <br>
-<div fxLayout="column" fxLayoutAlign="center center" class="login-container">
+  -->
+<div fxLayout="column" fxLayoutAlign="center center" class="login-container" style="-moz-box-align: center">
   <div fxLayout="column" fxLayoutAlign="center end">
       <mat-card class="login-card">
           <mat-card-header>
@@ -19,7 +20,8 @@
       </mat-card>
   </div>
   <br/>
-  <a mat-button color="primary" routerLink="/register">
+  <a mat-button color="primary" (click)="openRegisterDialog()">
       Create Account
   </a>
+ 
 </div>

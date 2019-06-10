@@ -12,6 +12,8 @@ import { ProjectComponent } from '../project/project.component';
 import { TaskComponent } from '../task/task.component';
 import { Auth } from 'aws-amplify';
 import { integer } from 'aws-sdk/clients/cloudfront';
+import { User } from 'aws-sdk/clients/iam';
+
 
 
 @Component({
@@ -21,7 +23,7 @@ import { integer } from 'aws-sdk/clients/cloudfront';
 })
 export class DashboardComponent implements OnInit {
  
- 
+  currentUser: User;
   public allProject:any;
   public allTasks:any;
   public isAdmin: boolean;
@@ -74,7 +76,12 @@ console.log(this.allProject.data.listProjects);
 
 
 }
+ getUser()
+ {
 
+ localStorage.getItem('currentUser');
+ 
+ }
 async getTask()
 {
   

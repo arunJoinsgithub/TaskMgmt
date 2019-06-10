@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth } from 'aws-amplify';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-logoff',
@@ -8,12 +9,14 @@ import { Auth } from 'aws-amplify';
 })
 export class LogoffComponent implements OnInit {
 
-  constructor() { }
+  constructor( private snackbar: MatSnackBar) { }
 
   ngOnInit() {
   }
  signOut()
  {
+  localStorage.removeItem('currentUser');
+  this.snackbar.open('Successfully created account', '', { duration: 3000 });
   Auth.signOut()
   .then(data => console.log(data))
   .catch(err => console.log(err));

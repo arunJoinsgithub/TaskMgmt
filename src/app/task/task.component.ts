@@ -3,12 +3,11 @@ import Amplify, { API, graphqlOperation } from "aws-amplify";
 import { FormGroup, FormControl, Validators, AbstractControl, FormBuilder } from '@angular/forms';
 import * as mutations from '../graphql/mutations';
 import * as queries from '../graphql/queries';
-
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { async } from 'q';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-task',
@@ -18,7 +17,7 @@ import { async } from 'q';
 export class TaskComponent implements OnInit {
   public allProject:any;
   private taskform: FormGroup;
-  constructor() { 
+  constructor(private snackbar: MatSnackBar) { 
   }
 
   ngOnInit() {  
@@ -34,14 +33,15 @@ export class TaskComponent implements OnInit {
           // Mutation
       const taskDetails = {
         
-        taskid:Math.floor(Math.random() * (999999 - 100000)) + 100000,
-        desc:this.taskform.get('Name').value,
-        Project:this.taskform.get('Name').value,
+        taskid:Math.floor(Math.random() * (999999 - 100000)) + 100000,        
+        desc:this.taskform.value.Name,
+        Project:"Test",
         user:'arun',
         completed:true
       };
-
+      //alert(this.taskform.value);
       const newProject= await API.graphql(graphqlOperation(mutations.createTask, {input: taskDetails}));
+      this.snackbar.open('New Task created successfully'+this.taskform.value.Name, '', { duration: 3000, panelClass:"test-panel" , verticalPosition:"top"});
       
   }
   async getProject()

@@ -5,7 +5,7 @@
 
   <div class="place-order">
       <mat-form-field>
-          <mat-select placeholder="Select Project">
+          <mat-select placeholder="Select Project" >
               <mat-option *ngFor="let grp of allProject.data.listProjects.items" [value]="grp">{{grp.name}}   </mat-option>
           </mat-select>
         </mat-form-field>
@@ -91,6 +91,16 @@
           <mat-row *matRowDef="let row; columns: displayedColumns;" class="light-bg white-border" ></mat-row>
        
       </mat-table>
+      <div *ngIf="myDataSource.data.items.length === 0" >
+          <p class="text-red padding-top-15 left-buffer-15">No  record found.</p>
+        </div>
+    
+      <div>
+          <mat-paginator [length]="100"
+          [pageSize]="10"
+          [pageSizeOptions]="[5, 10, 25, 100]">
+         </mat-paginator>
+      </div>
       <div >
         <button class="float-right mt-3" type="button" mat-fab color="primary"  (click)="openTaskDetailsDialog(11)">
           <i class="glyphicon glyphicon-plus"></i>

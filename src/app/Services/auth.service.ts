@@ -41,7 +41,7 @@ export class AuthService {
           });
   }
 
-  signUp(email: string, password: string, lastName: string, firstName: string, phone: string, departmentId: string, employeeId: string) {
+  signUp(email: string, password: string, lastName: string, firstName: string, phone: string) {
       return this.amplifyService.auth().signUp({
           username: email,
           password,
@@ -49,10 +49,7 @@ export class AuthService {
               email,
               family_name: lastName,
               name: firstName,
-              phone_number: phone,
-              'custom:department': departmentId,
-              'custom:employee_id': employeeId,
-              'custom:district': 'jeffco'
+              phone_number: phone            
           }
       });
   }
