@@ -13,6 +13,9 @@ import { TaskComponent } from '../task/task.component';
 import { Auth } from 'aws-amplify';
 import { integer } from 'aws-sdk/clients/cloudfront';
 import { User } from 'aws-sdk/clients/iam';
+import { UserProfileComponent } from '../user-profile/user-profile.component';
+import { ProfileComponent } from '../profile/profile.component';
+import { RegisterComponent } from '../register/register.component';
 
 
 
@@ -66,6 +69,18 @@ export class DashboardComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
       
     });
+
+       
+}
+openUserProfileDialogue() {
+    
+  const dialogRef = this.dialog.open(ProfileComponent, {
+    
+  });
+  dialogRef.afterClosed().subscribe(result => {
+  
+    
+  });
 }
 async getProject()
 {

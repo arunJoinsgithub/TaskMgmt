@@ -8,6 +8,7 @@ import { ProjectComponent } from './project/project.component';
 import { TaskComponent } from './task/task.component';
 import { LogoffComponent } from './logoff/logoff.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'project', component: ProjectComponent },
   { path: 'task', component: TaskComponent } ,
   { path: 'LogOff', component:LogoffComponent },
-  { path: 'forgetpassword', component:ForgetpasswordComponent }  
+  { path: 'forgetpassword', component:ForgetpasswordComponent } ,
+  { path: 'profile', component:ProfileComponent }  
   
   
 

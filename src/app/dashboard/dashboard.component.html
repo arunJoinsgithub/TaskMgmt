@@ -3,7 +3,7 @@
   <p class="page-description">   
   </p>
 
-  <div class="place-order">
+  <div class="place-order mx-2">
       <mat-form-field>
           <mat-select placeholder="Select Project" >
               <mat-option *ngFor="let grp of allProject.data.listProjects.items" [value]="grp">{{grp.name}}   </mat-option>
@@ -14,10 +14,11 @@
        </button>
        
   </div>
+
   <div>
       <h2 class="text-center">
           <!--My Task List-->
-      </h2>
+      </h2>      
       <mat-table [dataSource]="myDataSource.data.items" class="stripe mat-elevation-z1">
           <ng-container matColumnDef="SelectTask">
               <mat-header-cell *matHeaderCellDef> </mat-header-cell>
@@ -36,7 +37,7 @@
               </mat-cell>
           </ng-container>
        -->
-          <!-- Order Number Column -->
+     
           <ng-container matColumnDef="desc">
           <mat-header-cell *matHeaderCellDef>
                   
@@ -63,8 +64,7 @@
                   ASSIGNEE
               </mat-header-cell>
               <mat-cell *matCellDef="let element">                
-                  <button mat-mini-fab color="primary" class="shadow-none" > AI</button>
-                  
+                  <button mat-mini-fab color="primary" class="shadow-none" (click)="openUserProfileDialogue(element.taskid )"> AI</button>                 
                   
               </mat-cell>
           </ng-container>
@@ -102,7 +102,7 @@
          </mat-paginator>
       </div>
       <div >
-        <button class="float-right mt-3" type="button" mat-fab color="primary"  (click)="openTaskDetailsDialog(11)">
+        <button class="float-right mx-3" type="button" mat-fab color="primary"  (click)="openTaskDetailsDialog(11)">
           <i class="glyphicon glyphicon-plus"></i>
             </button></div>
   </div>

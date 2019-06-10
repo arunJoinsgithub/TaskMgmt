@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
@@ -8,10 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
-
-
-
 
 import {
   MatButtonModule,
@@ -46,6 +41,8 @@ import { LoginFormComponent } from './shared/login-form/login-form.component';
 import { LogoffComponent } from './logoff/logoff.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { NavComponent } from './nav/nav.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ProfileComponent } from './profile/profile.component';
 Amplify.configure(aws_exports);
 @NgModule({
   declarations: [
@@ -58,8 +55,9 @@ Amplify.configure(aws_exports);
     LoginFormComponent,
     LogoffComponent,
     ForgetpasswordComponent,
-    NavComponent 
-   
+    NavComponent,
+    UserProfileComponent,
+    ProfileComponent    
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,72 @@
+<h2 mat-dialog-title>
+    My Profile
+</h2>
+<mat-dialog-actions >
+    <button  mat-dialog-close>
+      <i class="glyphicon glyphicon-remove-circle"></i>
+    </button>    
+  </mat-dialog-actions>
+  <br>
+<mat-dialog-content>
+    <form [formGroup]="editProfileForm" fxLayout="column" (ngSubmit)="onEditProfile()">
+        <div fxLayout="row">
+            <mat-form-field appearance="outline" style="width:50%;margin-right:12px">
+                <mat-label>First Name</mat-label>
+                <input
+                    formControlName="firstName"
+                    matInput
+                    placeholder="First Name"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                    required
+                    value="Arun"
+                />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" style="width:50%">
+                <mat-label>Last Name</mat-label>
+                <input
+                    formControlName="lastName"
+                    matInput
+                    placeholder="Last Name"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                    required
+                    value="Ind"
+                />
+            </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" style="width: 50%">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" value="{{ email }}" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="width: 50%">
+            <mat-label>Phone Number</mat-label>
+            <input
+                matInput
+                placeholder="Phone Number"
+                value="{{ editProfile.phoneNumber }}"                
+            />
+        </mat-form-field>      
+
+        <hr />
+
+      
+
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">
+   
+    <button       
+        type="button"
+        mat-flat-button
+        mat-button-right     
+    >
+        <span >Save</span>
+      
+    </button>
+</mat-dialog-actions>

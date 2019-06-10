@@ -47,14 +47,14 @@ export class LoginFormComponent implements OnInit, AfterViewInit {
           this.authService.login(this.loginForm.get('email').value, this.loginForm.get('password').value)
               .then(result => {
                 this.snackbar.open('You are logged in as..'+this.loginForm.get('email').value, '', { duration: 3000, panelClass:"test-panel" , verticalPosition:"top"});
-                  console.log(result);
+                localStorage.setItem('currentUseremail', this.loginForm.get('email').value);
                   this.router.navigateByUrl('dashboard')
                   this.loading = false;
                   console.log(result);
                   if (result.token && result) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(result));
-                   console.log( localStorage.getItem('currentUser'));
+                    localStorage.setItem('currentUseremail', this.loginForm.get('email').value);
+                   
                 }
               })
               .catch(error => {
