@@ -41,7 +41,7 @@
 
         <mat-form-field appearance="outline" style="width: 50%">
             <mat-label>Email</mat-label>
-            <input matInput placeholder="Email" value="{{ email }}" />
+            <input matInput placeholder="Email" value="{{ email }}" disabled />
         </mat-form-field>
 
         <mat-form-field appearance="outline" style="width: 50%">
@@ -49,7 +49,8 @@
             <input
                 matInput
                 placeholder="Phone Number"
-                value="{{ editProfile.phoneNumber }}"                
+                value="{{ phone }}"
+                disabled                
             />
         </mat-form-field>      
 

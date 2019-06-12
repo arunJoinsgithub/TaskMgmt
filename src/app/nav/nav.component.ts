@@ -11,7 +11,7 @@ import {MatSnackBar, MatSnackBarRef} from '@angular/material/snack-bar';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-
+  status:string;
  // constructor(public dialog: MatDialog) { }
 
  /* ngOnInit() {
@@ -43,6 +43,7 @@ openSnackBar(message: string, action: string) {
 }
  mobileQuery: MediaQueryList;
  ngOnInit() {
+  // this.status=localStorage.getItem('status');
 }
   fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
 

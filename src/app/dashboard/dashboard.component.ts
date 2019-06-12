@@ -25,7 +25,8 @@ import { RegisterComponent } from '../register/register.component';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
- 
+  selected = 'option2';
+  status=' loggedin'
   currentUser: User;
   public allProject:any;
   public allTasks:any;
@@ -48,7 +49,7 @@ export class DashboardComponent implements OnInit {
 
  //displayedColumns: string[] = ['SelectTask','taskid','desc', 'Project', 'user', 'completed','Action'];
   //myDataSource: taskElement[] = this.allTasks.listProjects;
-  displayedColumns: string[] = ['SelectTask','desc','user','Action'];
+  displayedColumns: string[] = ['SelectTask','desc','Project','user','Action'];
   /**
      * Open Project details dialog
      */
@@ -57,17 +58,17 @@ export class DashboardComponent implements OnInit {
          
       });
       dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);       
+       // console.log(`Dialog result: ${result}`);       
       });
   }
   openTaskDetailsDialog(taskId) {
     
     const dialogRef = this.dialog.open(TaskComponent, {
-      data: taskId
+      data: {Name: this.selected}
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-      
+     // console.log(`Dialog result: ${result}`);
+      alert(taskId+this.selected);
     });
 
        
@@ -87,7 +88,7 @@ async getProject()
   // Simple query
 this.allProject = await API.graphql(graphqlOperation(queries.listProjects));
 
-console.log(this.allProject.data.listProjects);
+//console.log(this.allProject.data.listProjects);
 
 
 }
@@ -97,13 +98,14 @@ console.log(this.allProject.data.listProjects);
  localStorage.getItem('currentUser');
  
  }
+ 
 async getTask()
 {
   
 // Query using a parameter
 this.allTasks = await API.graphql(graphqlOperation(queries.listTasks));
 this.myDataSource.data = this.allTasks.data.listTasks;
-console.log(this.myDataSource.data);
+//console.log(this.myDataSource.data);
 }
 
 async Delete(id:integer)
@@ -119,7 +121,7 @@ async Delete(id:integer)
   };
   await API.graphql(graphqlOperation(mutations.deleteTask, {input: id}));
 
-  console.log("delete task")
+  //console.log("delete task")
 }
 }
 

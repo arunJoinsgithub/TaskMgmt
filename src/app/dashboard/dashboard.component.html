@@ -1,109 +1,111 @@
 
 <div class="content">
-  <p class="page-description">   
-  </p>
-
-  <div class="place-order mx-2">
-      <mat-form-field>
-          <mat-select placeholder="Select Project" >
-              <mat-option *ngFor="let grp of allProject.data.listProjects.items" [value]="grp">{{grp.name}}   </mat-option>
-          </mat-select>
-        </mat-form-field>
-      <button class="float-right" type="button" mat-flat-button  (click)="openProjectDetailsDialog()">
-      New Project
-       </button>
-       
-  </div>
-
-  <div>
-      <h2 class="text-center">
-          <!--My Task List-->
-      </h2>      
-      <mat-table [dataSource]="myDataSource.data.items" class="stripe mat-elevation-z1">
-          <ng-container matColumnDef="SelectTask">
-              <mat-header-cell *matHeaderCellDef> </mat-header-cell>
-              <mat-cell *matCellDef="let element">      
-                  <mat-checkbox></mat-checkbox>
-                 
-              </mat-cell>
-            </ng-container>
-          <!-- Date Column 
-          <ng-container matColumnDef="taskid" >
-              <mat-header-cell *matHeaderCellDef>
-                  TASK ID
-              </mat-header-cell>
-              <mat-cell *matCellDef="let element">
-                  {{ element.taskid }}
-              </mat-cell>
-          </ng-container>
-       -->
-     
-          <ng-container matColumnDef="desc">
-          <mat-header-cell *matHeaderCellDef>
-                  
-              </mat-header-cell>
-              <mat-cell *matCellDef="let element" >
-                  <a  (click)="openTaskDetailsDialog(element.taskid )">
-                        {{ element.desc }}
-                  </a>
-              </mat-cell>
-          </ng-container>
-
-          
-            <!--<ng-container matColumnDef="Project">
-              <mat-header-cell *matHeaderCellDef>
-                  PROJECT
-              </mat-header-cell>
-              <mat-cell *matCellDef="let element">
-                  {{ element.Project }}
-              </mat-cell>
-          </ng-container>-->
-
-          <ng-container matColumnDef="user">
-              <mat-header-cell *matHeaderCellDef>
-                  ASSIGNEE
-              </mat-header-cell>
-              <mat-cell *matCellDef="let element">                
-                  <button mat-mini-fab color="primary" class="shadow-none" (click)="openUserProfileDialogue(element.taskid )"> AI</button>                 
-                  
-              </mat-cell>
-          </ng-container>
-<!--
-         Status Column 
-          <ng-container matColumnDef="completed" >
-              <mat-header-cell *matHeaderCellDef>
-                  STATUS
-              </mat-header-cell>
-              <mat-cell *matCellDef="let element">
-                  {{ element.completed }}
-              </mat-cell>
-          </ng-container>-->
-          <ng-container matColumnDef="Action">
-              <mat-header-cell *matHeaderCellDef> </mat-header-cell>
-              <mat-cell *matCellDef="let element">      
-                <button type="button" (click)="Delete(element.taskid)" style="border-style:none">       
-                    <i class="glyphicon glyphicon-trash"></i> </button>
-              </mat-cell>
-            </ng-container>
+        <p class="page-description">   
+        </p>
       
-                <br>
-          <!--<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>-->
-          <mat-row *matRowDef="let row; columns: displayedColumns;" class="light-bg white-border" ></mat-row>
-       
-      </mat-table>
-      <div *ngIf="myDataSource.data.items.length === 0" >
-          <p class="text-red padding-top-15 left-buffer-15">No  record found.</p>
+        <div class="place-order mx-2">
+                <mat-form-field>
+                        <mat-label>Select Project</mat-label>
+                        <mat-select [(value)]="selected">                      
+                          <mat-option *ngFor="let grp of allProject.data.listProjects.items" [value]="grp.name">{{grp.name}}   </mat-option>                    
+                        </mat-select>
+                      </mat-form-field>
+                    
+            <button class="float-right" type="button" mat-flat-button  (click)="openProjectDetailsDialog()">
+            New Project
+             </button>
+             
+        </div>      
+        <div>
+            <h2 class="text-center">
+                <!--My Task List-->
+            </h2>      
+            <mat-table [dataSource]="myDataSource.data.items" class="stripe mat-elevation-z1">
+                <ng-container matColumnDef="SelectTask">
+                    <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                    <mat-cell *matCellDef="let element">      
+                        <mat-checkbox></mat-checkbox>
+                       
+                    </mat-cell>
+                  </ng-container>
+                <!-- Date Column 
+                <ng-container matColumnDef="taskid" >
+                    <mat-header-cell *matHeaderCellDef>
+                        TASK ID
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        {{ element.taskid }}
+                    </mat-cell>
+                </ng-container>
+             -->
+           
+                <ng-container matColumnDef="desc">
+                <mat-header-cell *matHeaderCellDef>
+                        
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element" >
+                        <a  (click)="openTaskDetailsDialog(element.taskid )">
+                              {{ element.desc }}
+                        </a>
+                    </mat-cell>
+                </ng-container>
+      
+                
+                  <ng-container matColumnDef="Project">
+                    <mat-header-cell *matHeaderCellDef>
+                        PROJECT
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        {{ element.Project }}
+                    </mat-cell>
+                </ng-container>
+      
+                <ng-container matColumnDef="user">
+                    <mat-header-cell *matHeaderCellDef>
+                        ASSIGNEE
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">                
+                        <button mat-mini-fab color="primary" class="shadow-none" (click)="openUserProfileDialogue(element.taskid )"> AI</button>                 
+                        
+                    </mat-cell>
+                </ng-container>
+      <!--
+               Status Column 
+                <ng-container matColumnDef="completed" >
+                    <mat-header-cell *matHeaderCellDef>
+                        STATUS
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        {{ element.completed }}
+                    </mat-cell>
+                </ng-container>-->
+                <ng-container matColumnDef="Action">
+                    <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                    <mat-cell *matCellDef="let element">      
+                      <button type="button" (click)="Delete(element.taskid)" style="border-style:none">       
+                          <i class="glyphicon glyphicon-trash"></i> </button>
+                    </mat-cell>
+                  </ng-container>
+            
+                      <br>
+                <!--<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>-->
+                <mat-row *matRowDef="let row; columns: displayedColumns;" class="light-bg white-border" ></mat-row>
+             
+            </mat-table>
+            <div *ngIf="myDataSource.data.items.length === 0" >
+                <p class="text-red padding-top-15 left-buffer-15">No  record found.</p>
+              </div>
+          
+            <div>
+                <mat-paginator [length]="100"
+                [pageSize]="10"
+                [pageSizeOptions]="[5, 10, 25, 100]">
+               </mat-paginator>
+            </div>
+            <div >
+              <button class="float-right mx-3" type="button" mat-fab color="primary"  (click)="openTaskDetailsDialog(11)">
+                <i class="glyphicon glyphicon-plus"></i>
+                  </button></div>
         </div>
-    
-      <div>
-          <mat-paginator [length]="100"
-          [pageSize]="10"
-          [pageSizeOptions]="[5, 10, 25, 100]">
-         </mat-paginator>
       </div>
-      <div >
-        <button class="float-right mx-3" type="button" mat-fab color="primary"  (click)="openTaskDetailsDialog(11)">
-          <i class="glyphicon glyphicon-plus"></i>
-            </button></div>
-  </div>
-</div>
+      

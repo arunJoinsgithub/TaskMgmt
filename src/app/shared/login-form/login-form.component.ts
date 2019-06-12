@@ -48,9 +48,11 @@ export class LoginFormComponent implements OnInit, AfterViewInit {
               .then(result => {
                 this.snackbar.open('You are logged in as..'+this.loginForm.get('email').value, '', { duration: 3000, panelClass:"test-panel" , verticalPosition:"top"});
                 localStorage.setItem('currentUseremail', this.loginForm.get('email').value);
+                localStorage.setItem('currentphone', result.challengeParam.userAttributes.phone_number);
+                localStorage.setItem('status','loggedin');
                   this.router.navigateByUrl('dashboard')
                   this.loading = false;
-                  console.log(result);
+                  console.log(result.challengeParam.userAttributes.phone_number);
                   if (result.token && result) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUseremail', this.loginForm.get('email').value);

@@ -15,6 +15,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent implements OnInit {
+  selected = 'option2';
+  public myapp:string;
   public allProject:any;
   private taskform: FormGroup;
   constructor(private snackbar: MatSnackBar) { 
@@ -35,11 +37,11 @@ export class TaskComponent implements OnInit {
         
         taskid:Math.floor(Math.random() * (999999 - 100000)) + 100000,        
         desc:this.taskform.value.Name,
-        Project:"Test",
+        Project:this.selected,
         user:'arun',
         completed:true
       };
-      //alert(this.taskform.value);
+      alert(this.selected);
       const newProject= await API.graphql(graphqlOperation(mutations.createTask, {input: taskDetails}));
       this.snackbar.open('New Task created successfully'+this.taskform.value.Name, '', { duration: 3000, panelClass:"test-panel" , verticalPosition:"top"});
       
