@@ -61,14 +61,14 @@ export class DashboardComponent implements OnInit {
        // console.log(`Dialog result: ${result}`);       
       });
   }
-  openTaskDetailsDialog(taskId) {
+  openTaskDetailsDialog(name) {
     
     const dialogRef = this.dialog.open(TaskComponent, {
-      data: {Name: this.selected}
+      data: {taskname:name}
     });
     dialogRef.afterClosed().subscribe(result => {
      // console.log(`Dialog result: ${result}`);
-      alert(taskId+this.selected);
+      //alert(taskId+this.selected);
     });
 
        
@@ -98,30 +98,35 @@ this.allProject = await API.graphql(graphqlOperation(queries.listProjects));
  localStorage.getItem('currentUser');
  
  }
- 
+
 async getTask()
 {
   
 // Query using a parameter
-this.allTasks = await API.graphql(graphqlOperation(queries.listTasks));
-this.myDataSource.data = this.allTasks.data.listTasks;
+this.allTasks = await API.graphql(graphqlOperation(queries.listTaskTables));
+this.myDataSource.data = this.allTasks.data.listTaskTables;
 //console.log(this.myDataSource.data);
 }
 
-async Delete(id:integer)
+async Delete(taskid:integer)
 {
   
-  console.log(id)
+  console.log(taskid)
   const deltaskdetails = {
-    taskid:id,
+    taskid:taskid,
     desc:'task',
     Project:'test',
     user:'arun',
     completed:true
   };
-  await API.graphql(graphqlOperation(mutations.deleteTask, {input: id}));
-
+ // Query using a parameter
+//const oneTodo = await API.graphql(graphqlOperation(queries.getTask, { id: '4bc5f181-d501-4564-8f1e-b9f6aabd22ea' }));
+//console.log(oneTodo);
+ // await API.graphql(graphqlOperation(mutations.deleteTask, {id: "a6c78c64-6a0f-44fa-9e20-bc97cf53c0b4"}));
+ //await API.graphql(graphqlOperation(mutations.deleteTaskbyTaskid));
   //console.log("delete task")
+ alert(taskid)
+  await API.graphql(graphqlOperation(mutations.deleteTaskTable, {id: "243384"}));
 }
 }
 

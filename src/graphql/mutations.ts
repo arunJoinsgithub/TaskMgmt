@@ -55,20 +55,6 @@ export const deleteTask = `mutation DeleteTask($input: DeleteTaskInput!) {
   }
 }
 `;
-
-export const deleteTaskbyTaskidold = `mutation deleteTaskinfo{
-  deleteTask(input:{id:"a6c78c64-6a0f-44fa-9e20-bc97cf53c0b4"}) {
-taskid,
-desc,
-Project,
-user,
-completed,
-  }
-}
-
-`;
-
-
 export const createTaskTable = `mutation CreateTaskTable($input: CreateTaskTableInput!) {
   createTaskTable(input: $input) {
     id

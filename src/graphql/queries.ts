@@ -26,7 +26,6 @@ export const listProjects = `query ListProjects(
 `;
 export const getTask = `query GetTask($id: ID!) {
   getTask(id: $id) {
-    id
     taskid
     desc
     Project
@@ -52,6 +51,17 @@ export const listTasks = `query ListTasks(
   }
 }
 `;
+export const getTaskTable = `query GetTaskTable($id: ID!) {
+  getTaskTable(id: $id) {
+    id
+    name
+    desc
+    Project
+    user
+    completed
+  }
+}
+`;
 export const listTaskTables = `query ListTaskTables(
   $filter: ModelTaskTableFilterInput
   $limit: Int
@@ -67,17 +77,6 @@ export const listTaskTables = `query ListTaskTables(
       completed
     }
     nextToken
-  }
-}
-`;
-export const getTaskTable = `query GetTaskTable($id: ID!) {
-  getTaskTable(id: $id) {
-    id
-    name
-    desc
-    Project
-    user
-    completed
   }
 }
 `;

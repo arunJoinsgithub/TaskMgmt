@@ -37,6 +37,28 @@ export type DeleteTaskInput = {
   id?: string | null,
 };
 
+export type CreateTaskTableInput = {
+  id?: string | null,
+  name: string,
+  desc: string,
+  Project: string,
+  user: string,
+  completed: boolean,
+};
+
+export type UpdateTaskTableInput = {
+  id: string,
+  name?: string | null,
+  desc?: string | null,
+  Project?: string | null,
+  user?: string | null,
+  completed?: boolean | null,
+};
+
+export type DeleteTaskTableInput = {
+  id?: string | null,
+};
+
 export type ModelProjectFilterInput = {
   id?: ModelIDFilterInput | null,
   name?: ModelStringFilterInput | null,
@@ -86,6 +108,18 @@ export type ModelTaskFilterInput = {
   and?: Array< ModelTaskFilterInput | null > | null,
   or?: Array< ModelTaskFilterInput | null > | null,
   not?: ModelTaskFilterInput | null,
+};
+
+export type ModelTaskTableFilterInput = {
+  id?: ModelIDFilterInput | null,
+  name?: ModelStringFilterInput | null,
+  desc?: ModelStringFilterInput | null,
+  Project?: ModelStringFilterInput | null,
+  user?: ModelStringFilterInput | null,
+  completed?: ModelBooleanFilterInput | null,
+  and?: Array< ModelTaskTableFilterInput | null > | null,
+  or?: Array< ModelTaskTableFilterInput | null > | null,
+  not?: ModelTaskTableFilterInput | null,
 };
 
 export type CreateProjectMutationVariables = {
@@ -172,6 +206,54 @@ export type DeleteTaskMutation = {
   } | null,
 };
 
+export type CreateTaskTableMutationVariables = {
+  input: CreateTaskTableInput,
+};
+
+export type CreateTaskTableMutation = {
+  createTaskTable:  {
+    __typename: "TaskTable",
+    id: string,
+    name: string,
+    desc: string,
+    Project: string,
+    user: string,
+    completed: boolean,
+  } | null,
+};
+
+export type UpdateTaskTableMutationVariables = {
+  input: UpdateTaskTableInput,
+};
+
+export type UpdateTaskTableMutation = {
+  updateTaskTable:  {
+    __typename: "TaskTable",
+    id: string,
+    name: string,
+    desc: string,
+    Project: string,
+    user: string,
+    completed: boolean,
+  } | null,
+};
+
+export type DeleteTaskTableMutationVariables = {
+  input: DeleteTaskTableInput,
+};
+
+export type DeleteTaskTableMutation = {
+  deleteTaskTable:  {
+    __typename: "TaskTable",
+    id: string,
+    name: string,
+    desc: string,
+    Project: string,
+    user: string,
+    completed: boolean,
+  } | null,
+};
+
 export type GetProjectQueryVariables = {
   id: string,
 };
@@ -240,6 +322,44 @@ export type ListTasksQuery = {
   } | null,
 };
 
+export type GetTaskTableQueryVariables = {
+  id: string,
+};
+
+export type GetTaskTableQuery = {
+  getTaskTable:  {
+    __typename: "TaskTable",
+    id: string,
+    name: string,
+    desc: string,
+    Project: string,
+    user: string,
+    completed: boolean,
+  } | null,
+};
+
+export type ListTaskTablesQueryVariables = {
+  filter?: ModelTaskTableFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListTaskTablesQuery = {
+  listTaskTables:  {
+    __typename: "ModelTaskTableConnection",
+    items:  Array< {
+      __typename: "TaskTable",
+      id: string,
+      name: string,
+      desc: string,
+      Project: string,
+      user: string,
+      completed: boolean,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
 export type OnCreateProjectSubscription = {
   onCreateProject:  {
     __typename: "Project",
@@ -293,6 +413,42 @@ export type OnDeleteTaskSubscription = {
   onDeleteTask:  {
     __typename: "Task",
     taskid: string,
+    desc: string,
+    Project: string,
+    user: string,
+    completed: boolean,
+  } | null,
+};
+
+export type OnCreateTaskTableSubscription = {
+  onCreateTaskTable:  {
+    __typename: "TaskTable",
+    id: string,
+    name: string,
+    desc: string,
+    Project: string,
+    user: string,
+    completed: boolean,
+  } | null,
+};
+
+export type OnUpdateTaskTableSubscription = {
+  onUpdateTaskTable:  {
+    __typename: "TaskTable",
+    id: string,
+    name: string,
+    desc: string,
+    Project: string,
+    user: string,
+    completed: boolean,
+  } | null,
+};
+
+export type OnDeleteTaskTableSubscription = {
+  onDeleteTaskTable:  {
+    __typename: "TaskTable",
+    id: string,
+    name: string,
     desc: string,
     Project: string,
     user: string,

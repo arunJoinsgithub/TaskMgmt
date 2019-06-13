@@ -11,3 +11,11 @@ type Task @model {
   user: String!
   completed:Boolean!
 }
+type TaskTable @model {
+  id: ID!
+  name: String!
+  desc: String!
+  Project: String!
+  user: String!
+  completed:Boolean!
+}
