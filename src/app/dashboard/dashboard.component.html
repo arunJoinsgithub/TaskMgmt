@@ -1,4 +1,3 @@
-
 <div class="content">
         <p class="page-description">   
         </p>
@@ -6,7 +5,7 @@
         <div class="place-order mx-2">
                 <mat-form-field>
                         <mat-label>Select Project</mat-label>
-                        <mat-select [(value)]="selected">                      
+                        <mat-select [(value)]="selected" (change)="onLoadTasks()">                      
                           <mat-option *ngFor="let grp of allProject.data.listProjects.items" [value]="grp.name">{{grp.name}}   </mat-option>                    
                         </mat-select>
                       </mat-form-field>
@@ -27,7 +26,7 @@
                         <mat-checkbox></mat-checkbox>
                        
                     </mat-cell>
-                  </ng-container>
+                  </ng-container>                  
                 <!-- Date Column 
                 <ng-container matColumnDef="taskid" >
                     <mat-header-cell *matHeaderCellDef>
@@ -44,8 +43,8 @@
                         
                     </mat-header-cell>
                     <mat-cell *matCellDef="let element" >
-                        <a  (click)="openTaskDetailsDialog(element.desc)">
-                              {{ element.desc }}
+                        <a  (click)="openTaskDetailsDialog(element.id,element.name,element.desc,element.Project)">
+                              {{ element.name }}
                         </a>
                     </mat-cell>
                 </ng-container>
@@ -95,7 +94,7 @@
             <div *ngIf="myDataSource.data.items.length === 0" >
                 <p class="text-red padding-top-15 left-buffer-15">No  record found.</p>
               </div>
-          
+              <app-spinner  [loading]="loading"></app-spinner>
             <div>
                 <mat-paginator [length]="100"
                 [pageSize]="10"
@@ -106,6 +105,7 @@
               <button class="float-right mx-3" type="button" mat-fab color="primary"  (click)="openTaskDetailsDialog()">
                 <i class="glyphicon glyphicon-plus"></i>
                   </button></div>
+                  
         </div>
       </div>
-      
+     

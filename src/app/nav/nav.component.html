@@ -1,31 +1,25 @@
-<!--<nav class="navbar navbar-inverse" style="background: navy;border-radius: 0;">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="\dashboard">Dashboard</a>
-      </div>
-     
-      <ul class="nav navbar-nav navbar-right">
-        <li><a (click)="openLoginDetailsDialog()"><span class="glyphicon glyphicon-user" style="background: navy"></span> SignUp 
-        </a></li>
-        <li><a (click)="openRegisterDetailsDialog()"><span class="glyphicon glyphicon-user" style="background: navy"></span> Register 
-        </a></li>
-       
-      </ul>
-    </div>
-  </nav>
-  <div class="px-3 py-0"> -->
 
-      <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
-          <mat-toolbar color="primary" class="example-toolbar">
+
+      <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >        
+          <mat-toolbar color="primary" class="example-toolbar">            
            
             <h1 class="example-app-name">Dashboard</h1>
-            <div style="text-align: right; width: 100%" >
-             
-            <button mat-icon-button  routerLink="/LogOff"
-            routerLinkActive="active"
-            matTooltip="Sign Out"
+            <div style="text-align: right; width: 100%" >              
+            <button mat-icon-button [matMenuTriggerFor]="menu" 
+            routerLinkActive="active"           
             matTooltipPosition="below"><mat-icon><span class="glyphicon glyphicon-user" >
-              </span></mat-icon></button>
+              </span></mat-icon></button> 
+              <mat-menu #menu="matMenu">
+                  <button mat-menu-item>                  
+                      <span>My Task</span>
+                  </button>
+                  <button mat-menu-item (click)="openUserProfileDialogue(element.taskid )">                  
+                    <span>My Profile</span>
+                  </button>
+                  <button mat-menu-item routerLink="/LogOff">      
+                    <span>Logout</span>
+                  </button>
+                </mat-menu>             
             </div>
           </mat-toolbar>          
         

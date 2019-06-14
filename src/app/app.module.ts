@@ -43,6 +43,7 @@ import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.compone
 import { NavComponent } from './nav/nav.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 Amplify.configure(aws_exports);
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ Amplify.configure(aws_exports);
     ForgetpasswordComponent,
     NavComponent,
     UserProfileComponent,
-    ProfileComponent    
+    ProfileComponent,
+    SpinnerComponent    
   ],
   imports: [
     BrowserModule,

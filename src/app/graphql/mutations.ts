@@ -93,11 +93,11 @@ export const updateTaskTable = `mutation UpdateTaskTable($input: UpdateTaskTable
 `;
 export const deleteTaskTable = `mutation DeleteTaskTable($input: DeleteTaskTableInput!) {
   deleteTaskTable(input: $input) {
-    id
-    name
-    desc
-    Project
-    user
+    id,
+    name,
+    desc,
+    Project,
+    user,
     completed
   }
 }

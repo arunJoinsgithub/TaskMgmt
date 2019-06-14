@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  loading: boolean;
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {

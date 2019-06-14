@@ -9,6 +9,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { async } from 'q';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MAT_DIALOG_DATA } from '@angular/material';
+import { stringList } from 'aws-sdk/clients/datapipeline';
 
 @Component({
   selector: 'app-task',
@@ -17,6 +18,7 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 })
 export class TaskComponent implements OnInit {
   title="Add Task"
+  actionName="Save"
   selected = 'option2';
   public myapp:string;
   public allProject:any;
@@ -27,8 +29,15 @@ export class TaskComponent implements OnInit {
 
   ngOnInit() {  
       this.taskform = new FormGroup({
-        Name: new FormControl('', Validators.required),
+        Name: new FormControl(this.data.taskname, Validators.required),
+        Desc: new FormControl(this.data.taskdesc),
+        Project:new FormControl(this.data.taskProject),
+     
+  
+        
     });
+   
+    this.selected=this.data.taskProject;
     this.allProject=this.getProject();  
     this.getProject();
    // this.title="Add Task"
@@ -47,44 +56,57 @@ export class TaskComponent implements OnInit {
         user:'arun',
         completed:true
       };
-      alert(this.selected);
+      //alert(this.selected);
       const newProject= await API.graphql(graphqlOperation(mutations.createTask, {input: taskDetails}));
       this.snackbar.open('New Task created successfully'+this.taskform.value.Name, '', { duration: 3000, panelClass:"test-panel" , verticalPosition:"top"});
       
   }
 
-  async createtasktable()
+  async createtasktable(action:string)
   {
+    if(action=="Save"){
           // Mutation
       const tasktableDetails = {       
         id:Math.floor(Math.random() * (999999 - 100000)) + 100000,
         name:this.taskform.value.Name,       
-        desc:this.taskform.value.Name,
+        desc:this.taskform.value.Desc,
         Project:this.selected,
         user:'arun',
         completed:true
       };
-      alert(this.selected);
+     // alert(this.selected);
       const newProject= await API.graphql(graphqlOperation(mutations.createTaskTable, {input: tasktableDetails}));
       this.snackbar.open('New Task table created successfully'+this.taskform.value.Name, '', { duration: 3000, panelClass:"test-panel" , verticalPosition:"top"});
-      
+    }
+   if(action=="Update"){
+      // Mutation
+      //alert("Üpdate");
+  const tasktableUpdateDetails = {       
+    id:this.data.taskid,
+    name:this.taskform.value.Name,       
+    desc:this.taskform.value.Desc,
+    Project:this.selected,
+    user:'arun',
+    completed:true
+  };
+  alert(this.selected);
+  console.log(tasktableUpdateDetails);
+  const updateProject= await API.graphql(graphqlOperation(mutations.updateTaskTable, {input: tasktableUpdateDetails}));
+  this.snackbar.open(' Task table updated successfully'+this.taskform.value.Name, '', { duration: 3000, panelClass:"test-panel" , verticalPosition:"top"});
+}
   }
  async getProject()
 {
   // Simple query
 this.allProject = await API.graphql(graphqlOperation(queries.listProjects));
-
-//console.log(this.allProject.data.listProjects);
-
 }
 async AssignValues()
 {
   if(this.data.taskname!=null){
-  this.title="Edit Task"
+  this.title="Update Task";
+  this.actionName="Update";  
 }
+ //alert(this.data.taskid)
   this.taskform.setValue({Name:this.data.taskname});
- 
 }
-
-
 }     

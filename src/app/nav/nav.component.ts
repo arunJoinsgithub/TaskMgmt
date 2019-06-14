@@ -4,6 +4,7 @@ import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {MatSnackBar, MatSnackBarRef} from '@angular/material/snack-bar';
+import { ProfileComponent } from '../profile/profile.component';
 
 @Component({
   selector: 'app-nav',
@@ -12,7 +13,8 @@ import {MatSnackBar, MatSnackBarRef} from '@angular/material/snack-bar';
 })
 export class NavComponent implements OnInit {
   status:string;
- // constructor(public dialog: MatDialog) { }
+  user:string;  
+ //constructor(public dialog: MatDialog) { }
 
  /* ngOnInit() {
   }
@@ -43,6 +45,7 @@ openSnackBar(message: string, action: string) {
 }
  mobileQuery: MediaQueryList;
  ngOnInit() {
+  this.user= "welcome "+localStorage.getItem('currentUseremail');
   // this.status=localStorage.getItem('status');
 }
   fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
@@ -56,12 +59,21 @@ openSnackBar(message: string, action: string) {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private _snackBar: MatSnackBar) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private _snackBar: MatSnackBar,public dialog: MatDialog) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
-
+  openUserProfileDialogue() {
+    
+    const dialogRef = this.dialog.open(ProfileComponent, {
+      
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    
+      
+    });
+  }
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
