@@ -44,6 +44,7 @@ import { NavComponent } from './nav/nav.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 Amplify.configure(aws_exports);
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ Amplify.configure(aws_exports);
     NavComponent,
     UserProfileComponent,
     ProfileComponent,
-    SpinnerComponent    
+    SpinnerComponent,
+    ConfirmationDialogComponent    
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,8 @@
   <h2 mat-dialog-title> My Profile<mat-dialog-actions class="d-inline float-right pt-0">
-        <button  mat-dialog-close>
+        <button  mat-dialog-close style="background: none;border: none; border-style:none">
           <i class="glyphicon glyphicon-remove-circle"></i>
         </button>    
-      </mat-dialog-actions></h2>
+      </mat-dialog-actions></h2>     
       <br>
 <mat-dialog-content>
     <form [formGroup]="editProfileForm" fxLayout="column" (ngSubmit)="onEditProfile()">

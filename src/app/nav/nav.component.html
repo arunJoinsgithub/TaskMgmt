@@ -1,37 +1,33 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
 
+    <h1 class="example-app-name">Dashboard</h1>
+    <div style="text-align: right; width: 100%" class="col-md-3 xxs-text" >
+    <a style="color: red">{{user}}</a>
+      <button mat-icon-button [matMenuTriggerFor]="menu" routerLinkActive="active" matTooltipPosition="below">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <span>My Task</span>
+        </button>
+        <button mat-menu-item (click)="openUserProfileDialogue()">
+          <span>My Profile</span>
+        </button>
+        <button mat-menu-item routerLink="/LogOff">
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </div>
+  </mat-toolbar>
 
-      <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >        
-          <mat-toolbar color="primary" class="example-toolbar">            
-           
-            <h1 class="example-app-name">Dashboard</h1>
-            <div style="text-align: right; width: 100%" >              
-            <button mat-icon-button [matMenuTriggerFor]="menu" 
-            routerLinkActive="active"           
-            matTooltipPosition="below"><mat-icon><span class="glyphicon glyphicon-user" >
-              </span></mat-icon></button> 
-              <mat-menu #menu="matMenu">
-                  <button mat-menu-item>                  
-                      <span>My Task</span>
-                  </button>
-                  <button mat-menu-item (click)="openUserProfileDialogue(element.taskid )">                  
-                    <span>My Profile</span>
-                  </button>
-                  <button mat-menu-item routerLink="/LogOff">      
-                    <span>Logout</span>
-                  </button>
-                </mat-menu>             
-            </div>
-          </mat-toolbar>          
-        
-          <mat-sidenav-container class="example-sidenav-container"
-                                 [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-            <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                         [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-              <mat-nav-list > 
-                  <a (click)="openLoginDetailsDialog()"> SignUp 
-                  </a>
-              </mat-nav-list>
-            </mat-sidenav>       
-            
-          </mat-sidenav-container>
-        </div>
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'">
+      <mat-nav-list>
+        <a (click)="openLoginDetailsDialog()"> SignUp
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+  </mat-sidenav-container>
+</div>

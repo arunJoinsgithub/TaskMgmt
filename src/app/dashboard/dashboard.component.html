@@ -5,7 +5,8 @@
         <div class="place-order mx-2">
                 <mat-form-field>
                         <mat-label>Select Project</mat-label>
-                        <mat-select [(value)]="selected" (change)="onLoadTasks()">                      
+                        <mat-select [(value)]="selected" (change)="onLoadTasks()">
+                         <mat-option>SelectAll</mat-option>                                        
                           <mat-option *ngFor="let grp of allProject.data.listProjects.items" [value]="grp.name">{{grp.name}}   </mat-option>                    
                         </mat-select>
                       </mat-form-field>
@@ -68,6 +69,7 @@
                         
                     </mat-cell>
                 </ng-container>
+                
       <!--
                Status Column 
                 <ng-container matColumnDef="completed" >

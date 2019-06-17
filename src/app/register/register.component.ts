@@ -69,7 +69,8 @@ export class RegisterComponent implements OnInit {
                 this.personalInfoForm.get('lastName').value,
                 this.personalInfoForm.get('firstName').value,
                 '+1' + this.personalInfoForm.get('phoneNumber').value
-                )
+            )
+                
                 .then(() => {
                     this.snackbar.open('Successfully created account', '', { duration: 3000 });
                     console.log('Successfully created account');

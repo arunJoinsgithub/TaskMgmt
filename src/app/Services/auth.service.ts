@@ -49,7 +49,10 @@ export class AuthService {
               email,
               family_name: lastName,
               name: firstName,
-              phone_number: phone            
+              phone_number: phone,
+              'custom:department': 'jeffco',
+              'custom:employee_id': 'jeffco',
+              'custom:district': 'jeffco'            
           }
       });
   }

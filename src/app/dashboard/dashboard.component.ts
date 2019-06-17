@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import Amplify, { API, graphqlOperation } from "aws-amplify";
 import {AuthService} from '../Services/auth.service';
 import { getProject } from '../graphql/queries';
@@ -41,8 +41,13 @@ export class DashboardComponent implements OnInit {
   loading: boolean;
   myDataSource= new MatTableDataSource(this.allTasks);
   
-  constructor(public dialog: MatDialog,private snackbar: MatSnackBar) {
+  constructor(public dialog: MatDialog,private snackbar: MatSnackBar,private ref: ChangeDetectorRef) {
     this.myDataSource.paginator = this.paginator;
+     
+      setInterval(() => {
+        this.ref.detectChanges();
+       }, 5000);
+      
   }
   ngOnInit() {
    // this.allTasks=this.getTask();
@@ -50,8 +55,8 @@ export class DashboardComponent implements OnInit {
     this.getTask();
     this.getProject();
     this.allTasks.data.listTaskTables.paginator = this.paginator; 
-    this.email= localStorage.getItem('currentUseremail');  
-    
+    this.email= localStorage.getItem('currentUseremail'); 
+   
     
   }
   ngAfterViewInit() {

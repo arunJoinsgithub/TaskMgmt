@@ -11,6 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { stringList } from 'aws-sdk/clients/datapipeline';
 
+
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
@@ -89,10 +90,10 @@ export class TaskComponent implements OnInit {
     user:'arun',
     completed:true
   };
-  alert(this.selected);
+  //alert(this.selected);
   console.log(tasktableUpdateDetails);
   const updateProject= await API.graphql(graphqlOperation(mutations.updateTaskTable, {input: tasktableUpdateDetails}));
-  this.snackbar.open(' Task table updated successfully'+this.taskform.value.Name, '', { duration: 3000, panelClass:"test-panel" , verticalPosition:"top"});
+  this.snackbar.open( this.taskform.value.Name+' updated successfully', '', { duration: 3000, panelClass:"test-panel" , verticalPosition:"top"});
 }
   }
  async getProject()
