@@ -1,23 +1,24 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar color="primary" class="example-toolbar">
 
-    <h1 class="example-app-name">Dashboard</h1>
-    <div style="text-align: right; width: 100%" class="col-md-3 xxs-text" >
-    <a style="color: red">{{user}}</a>
-      <button mat-icon-button [matMenuTriggerFor]="menu" routerLinkActive="active" matTooltipPosition="below">
-        <mat-icon>account_circle</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>
+    <h1 class="example-app-name">DASHBOARD</h1>
+    <div style="text-align: right; width: 100%" class="col-md-3 xxs-text">        
+      <button mat-button [mat-menu-trigger-for]="menu" 
+      #menuTrigger="matMenuTrigger" (mouseenter)="menuTrigger.openMenu()">
+      <mat-icon>account_circle</mat-icon>
+     </button>
+     <mat-menu #menu="matMenu" [overlapTrigger]="false" 
+      (mouseleave)="menuTrigger.closeMenu()">
+      <button mat-menu-item (click)="openMyTaskeDialogue()">
           <span>My Task</span>
         </button>
         <button mat-menu-item (click)="openUserProfileDialogue()">
           <span>My Profile</span>
         </button>
-        <button mat-menu-item routerLink="/LogOff">
+        <button mat-menu-item (click)="signOut()">
           <span>Logout</span>
         </button>
-      </mat-menu>
+     </mat-menu>
     </div>
   </mat-toolbar>
 

@@ -5,6 +5,9 @@ import { RegisterComponent } from '../register/register.component';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {MatSnackBar, MatSnackBarRef} from '@angular/material/snack-bar';
 import { ProfileComponent } from '../profile/profile.component';
+import { GoogleChartComponent } from 'angular-google-charts';
+import { MytaskComponent } from '../mytask/mytask.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,6 +17,7 @@ import { ProfileComponent } from '../profile/profile.component';
 })
 export class NavComponent implements OnInit {
   status:string;
+  isLoggedin=false;
   user:string;  
  //constructor(public dialog: MatDialog) { }
 
@@ -64,13 +68,18 @@ openSnackBar(message: string, action: string) {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private _snackBar: MatSnackBar,public dialog: MatDialog,private ref: ChangeDetectorRef) {
+  constructor(private router: Router,changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private _snackBar: MatSnackBar,public dialog: MatDialog,private ref: ChangeDetectorRef) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener,);
     setInterval(() => {
       this.ref.detectChanges();
      }, 20);
+  }
+  signOut()
+  {
+    localStorage.removeItem('currentUseremail');
+    this.router.navigateByUrl('/logOff')
   }
   openUserProfileDialogue() {    
     const dialogRef = this.dialog.open(ProfileComponent, {      
@@ -80,7 +89,15 @@ openSnackBar(message: string, action: string) {
       
     });
   }
- 
+  openMyTaskeDialogue() {   
+    
+    const dialogRef = this.dialog.open(MytaskComponent, {      
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    
+      
+    });
+  }
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }

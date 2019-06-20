@@ -54,7 +54,7 @@ export class TaskComponent implements OnInit {
         taskid:Math.floor(Math.random() * (999999 - 100000)) + 100000,        
         desc:this.taskform.value.Name,
         Project:this.selected,
-        user:'arun',
+        user:localStorage.get('currentUseremail'),
         completed:true
       };
       //alert(this.selected);
@@ -72,12 +72,12 @@ export class TaskComponent implements OnInit {
         name:this.taskform.value.Name,       
         desc:this.taskform.value.Desc,
         Project:this.selected,
-        user:'arun',
+        user:localStorage.getItem('currentUseremail'),
         completed:true
       };
      // alert(this.selected);
       const newProject= await API.graphql(graphqlOperation(mutations.createTaskTable, {input: tasktableDetails}));
-      this.snackbar.open('New Task table created successfully'+this.taskform.value.Name, '', { duration: 3000, panelClass:"test-panel" , verticalPosition:"top"});
+      this.snackbar.open('New Task  '+this.taskform.value.Name+' created successfully', '', { duration: 3000, panelClass:"test-panel" , verticalPosition:"top"});
     }
    if(action=="Update"){
       // Mutation
@@ -87,7 +87,7 @@ export class TaskComponent implements OnInit {
     name:this.taskform.value.Name,       
     desc:this.taskform.value.Desc,
     Project:this.selected,
-    user:'arun',
+    user:localStorage.getItem('currentUseremail'),
     completed:true
   };
   //alert(this.selected);

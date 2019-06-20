@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {  
-
-  constructor(){
+  email : string ;
+  phone :string;
+  constructor() {
+    this.email= localStorage.getItem('currentUseremail');
+    this.phone=localStorage.getItem('currentphone');
   }
+
 
   ngOnInit() {
   }

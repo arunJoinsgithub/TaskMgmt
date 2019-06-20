@@ -1,3 +1,11 @@
 <app-nav></app-nav>
 <router-outlet></router-outlet>
-
+<google-chart #chart
+   [title]="title"
+   [type]="PieChart"
+   [data]="data"
+   [columnNames]="columnNames"
+   [options]="options"
+   [width]="width"
+   [height]="height">
+</google-chart>

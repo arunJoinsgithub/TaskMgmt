@@ -21,7 +21,6 @@ import { EmailValidator } from '@angular/forms';
 import { delay } from 'q';
 
 
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -30,7 +29,7 @@ import { delay } from 'q';
 export class DashboardComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  selected = 'AllOption';
+  selected = 'SelectALL';
   status=' loggedin'
   email:string;
   currentUser: User;
@@ -42,7 +41,6 @@ export class DashboardComponent implements OnInit {
   myDataSource= new MatTableDataSource(this.allTasks);
   
   constructor(public dialog: MatDialog,private snackbar: MatSnackBar,private ref: ChangeDetectorRef) {
-    this.myDataSource.paginator = this.paginator;
      
       setInterval(() => {
         this.ref.detectChanges();
@@ -50,37 +48,25 @@ export class DashboardComponent implements OnInit {
       
   }
   ngOnInit() {
-   // this.allTasks=this.getTask();
-   // this.allProject=this.getProject();
-    this.getTask();
-    this.getProject();
-    this.allTasks.data.listTaskTables.paginator = this.paginator; 
-    this.email= localStorage.getItem('currentUseremail'); 
-   
-    
+    this.getTaskByFilter();
+    this.getProject(); 
   }
-  ngAfterViewInit() {
-    this.allTasks.data.listTaskTables.paginator = this.paginator;   
-  }
- //displayedColumns: string[] = ['SelectTask','taskid','desc', 'Project', 'user', 'completed','Action'];
-  //myDataSource: taskElement[] = this.allTasks.listProjects;
+  
+  
   displayedColumns: string[] = ['SelectTask','desc','Project','user','Action'];
-  /**
-     * Open Project details dialog
-     */
-
-    onLoadTasks()
+  
+  onLoadTasks()
     {
       this.loading=true
-      //alert(this.selected);
-      this.getTask()      
+     
+      this.getTaskByFilter()      
     }
   openProjectDetailsDialog() {
       const dialogRef = this.dialog.open(ProjectComponent, {
          
       });
       dialogRef.afterClosed().subscribe(result => {
-       // console.log(`Dialog result: ${result}`); 
+    
        this.getProject();      
       });
   }
@@ -90,81 +76,57 @@ export class DashboardComponent implements OnInit {
       data: {taskid:id,taskname:name,taskdesc:desc,taskProject:project}
  
     });
-    dialogRef.afterClosed().subscribe(result => {
-     // console.log(`Dialog result: ${result}`);
-      //alert(taskId+this.selected);
-      this.getTask();
+    dialogRef.afterClosed().subscribe(result => {     
+      this.getTaskByFilter();
     });
 
        
 }
 openUserProfileDialogue() {
     
-  const dialogRef = this.dialog.open(ProfileComponent, {
-    
+  const dialogRef = this.dialog.open(UserProfileComponent, {    
   });
-  dialogRef.afterClosed().subscribe(result => {
-  
-    
+  dialogRef.afterClosed().subscribe(result => {    
   });
 }
+
 async getProject()
 {
-  // Simple query
-this.allProject = await API.graphql(graphqlOperation(queries.listProjects));
-//console.log(this.allProject.data.listProjects);
+      // Simple query
+    this.allProject = await API.graphql(graphqlOperation(queries.listProjects));   
 }
- getUser()
- {
 
- localStorage.getItem('currentUser');
- 
- }
-
-async getTask()
+async getTaskByFilter()
 {
   
-if (this.selected==='AllOption')
+if (this.selected==='SelectALL')
 {
-  this.allTasks = await API.graphql(graphqlOperation(queries.listTaskTables));
-  this.myDataSource.data = this.allTasks.data.listTaskTables;
-  this.loading=false;
+ 
+      const searchFilterUser={user:{eq:localStorage.getItem('currentUseremail')}}
+    // Query using a parameter
+    this.allTasks = await API.graphql(graphqlOperation(queries.listTaskTables, {filter: searchFilterUser}));
+    this.myDataSource.data = this.allTasks.data.listTaskTables;
+    this.loading=false;
 }
 else
 {
-const searchFilter={Project:{eq:this.selected}}
-// Query using a parameter
-this.allTasks = await API.graphql(graphqlOperation(queries.listTaskTables, {filter: searchFilter}));
+  const searchFilter={Project:{eq:this.selected},user:{eq:localStorage.getItem('currentUseremail')}}
+  // Query using a parameter
+  this.allTasks = await API.graphql(graphqlOperation(queries.listTaskTables, {filter: searchFilter}));
 
-this.myDataSource.data = this.allTasks.data.listTaskTables;
-this.loading=false;
-}
+  this.myDataSource.data = this.allTasks.data.listTaskTables;
+  this.loading=false;
+  }
 }
 
-async Delete(taskid:Identifiers)
-{
-  
-  console.log(taskid)
-  const deltaskdetails = {
-    taskid:taskid,
-    desc:'task',
-    Project:'test',
-    user:this.email,
-    completed:true
-  };
+async onDelete(taskid:Identifiers)
+{ 
   const DeleteTaskTableInput ={
     id: taskid
   }
- // Query using a parameter
-//const oneTodo = await API.graphql(graphqlOperation(queries.getTask, { id: '4bc5f181-d501-4564-8f1e-b9f6aabd22ea' }));
-//console.log(oneTodo);
- // await API.graphql(graphqlOperation(mutations.deleteTask, {id: "a6c78c64-6a0f-44fa-9e20-bc97cf53c0b4"}));
- //await API.graphql(graphqlOperation(mutations.deleteTaskbyTaskid));
-  //console.log("delete task")
- //alert(taskid)
   await API.graphql(graphqlOperation(mutations.deleteTaskTable, {input: DeleteTaskTableInput}));
   this.snackbar.open(' Task deleted successfully', '', { duration: 3000, panelClass:"test-panel" , verticalPosition:"top"});
-  this.getTask();
+  this.getTaskByFilter();
 }
 }
 

@@ -31,6 +31,7 @@ export class LoginFormComponent implements OnInit, AfterViewInit {
           email: new FormControl('', [Validators.required, Validators.email]),
           password: new FormControl('', Validators.required)
       });
+     
   }
 
   public ngAfterViewInit() {
@@ -48,11 +49,11 @@ export class LoginFormComponent implements OnInit, AfterViewInit {
               .then(result => {
                 this.snackbar.open('You are logged in as..'+this.loginForm.get('email').value, '', { duration: 3000, panelClass:"test-panel" , verticalPosition:"top"});
                 localStorage.setItem('currentUseremail', this.loginForm.get('email').value);
-                localStorage.setItem('currentphone', result.challengeParam.userAttributes.phone_number);
+              //  localStorage.setItem('currentphone', result.challengeParam.userAttributes.phone_number);
                 localStorage.setItem('status','loggedin');
                   this.router.navigateByUrl('dashboard')
                   this.loading = false;
-                  console.log(result.challengeParam.userAttributes.phone_number);
+                 // console.log(result.challengeParam.userAttributes.phone_number);
                   if (result.token && result) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUseremail', this.loginForm.get('email').value);

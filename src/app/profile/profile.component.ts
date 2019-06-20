@@ -8,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
   email : string ;
   phone :string;
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
     this.email= localStorage.getItem('currentUseremail');
     this.phone=localStorage.getItem('currentphone');
+  }
+
+  ngOnInit() {
+   
   }
 
 }

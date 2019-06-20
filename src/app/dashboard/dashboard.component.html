@@ -1,18 +1,17 @@
 <div class="content">
-        <p class="page-description">   
-        </p>
-      
+        <h6>  
+           
+        </h6>
         <div class="place-order mx-2">
                 <mat-form-field>
-                        <mat-label>Select Project</mat-label>
-                        <mat-select [(value)]="selected" (change)="onLoadTasks()">
-                         <mat-option>SelectAll</mat-option>                                        
+                        <mat-label>Selected Project Name</mat-label>
+                        <mat-select [(value)]="selected" (change)="onLoadTasks()">                                                                
                           <mat-option *ngFor="let grp of allProject.data.listProjects.items" [value]="grp.name">{{grp.name}}   </mat-option>                    
                         </mat-select>
                       </mat-form-field>
                     
             <button class="float-right" type="button" mat-flat-button  (click)="openProjectDetailsDialog()">
-            New Project
+            NEW PROJECT
              </button>
              
         </div>      
@@ -83,8 +82,9 @@
                 <ng-container matColumnDef="Action">
                     <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                     <mat-cell *matCellDef="let element">      
-                      <button type="button" (click)="Delete(element.id)" style="border-style:none">       
-                          <i class="glyphicon glyphicon-trash"></i> </button>
+                      <button type="button" (click)="onDelete(element.id)" class="shadow-none" style="border-style:none">       
+                            <mat-icon>delete</mat-icon>
+                          </button>
                     </mat-cell>
                   </ng-container>
             

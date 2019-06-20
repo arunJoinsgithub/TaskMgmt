@@ -7,6 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { GoogleChartsModule } from 'angular-google-charts';
+import { ChartsModule } from 'ng2-charts';
+
+
+
+// In your App's module:
+imports: [
+   
+]
 
 import {
   MatButtonModule,
@@ -30,7 +39,8 @@ import {
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
-  MatTooltipModule
+  MatTooltipModule,
+
 } from '@angular/material';
 import { RegisterComponent } from './register/register.component';
 import { ProjectComponent } from './project/project.component';
@@ -45,6 +55,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { GoogleChartsComponent } from './google-charts/google-charts.component';
+import { MytaskComponent } from './mytask/mytask.component';
 Amplify.configure(aws_exports);
 @NgModule({
   declarations: [
@@ -61,7 +73,9 @@ Amplify.configure(aws_exports);
     UserProfileComponent,
     ProfileComponent,
     SpinnerComponent,
-    ConfirmationDialogComponent    
+    ConfirmationDialogComponent,
+    GoogleChartsComponent,
+    MytaskComponent    
   ],
   imports: [
     BrowserModule,
@@ -91,7 +105,8 @@ Amplify.configure(aws_exports);
         MatToolbarModule,
         MatTooltipModule,
         ReactiveFormsModule,
-        FormsModule   
+        FormsModule, 
+        GoogleChartsModule          
       
   ],
   exports: [   
